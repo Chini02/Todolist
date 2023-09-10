@@ -1,10 +1,15 @@
 <?php
 require "config.php";
+require "insertData";
 $data = $conn->query("SELECT * FROM task");
 
 ?>
 <?php include "header.php"; ?>
-
+<?php if (!empty($error)) : ?>
+    <div class="alert alert-danger" role="alert">
+        <?php echo $error; ?>
+    </div>
+<?php endif; ?>
     <div class="container">
         <center>
             <form class="row g-3" method="POST" action="insertData.php">
